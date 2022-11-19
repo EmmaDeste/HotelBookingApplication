@@ -1,5 +1,5 @@
 <template>
-    <body>
+    <body class="room_page">
     	<header>
 		<nav> 
 			<img id="logo" src="../assets/logo.jpg"> 
@@ -30,8 +30,186 @@
 			</nav> 
 	</header>
 			<h1> ... </h1>
-			<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
-			<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+			  <!-- ************************************************************** standard room part **************************************************************-->
+
+
+			  <div class="banner">
+      <div class="banner_room">
+        <img class="eco_room_banner" src="../assets/eco_room1.jpeg" alt="economy_room1">
+      </div>
+    </div>
+
+      <div class="booking_selection">
+        <form class="date" action="">
+          <label for="calendar">Check-in date : </label>
+          <input type="date" id="checkin" name="checkin">
+        </form>
+        <form class="date" action="">
+          <label for="calendar">Check-out date: </label>
+          <input type="date" id="checkout" name="checkout">
+        </form>
+        <form class="nb_adult" action="">
+          <label for="adult">Adults :</label>
+          <input type="number" id="adult" name="adult" step="1">
+        </form>
+        <form class="nb_kids" action="">
+          <label for="kids">Children :</label>
+          <input type="number" id="kids" name="kids" step="1">
+          <input type="submit">
+        </form>
+        </div>
+
+    <div class="room_info">
+
+    	<div class="room_intro">
+        	<h2>Standard Room N01 </h2>
+      	</div>
+
+    	<div class="eco_desc">
+			<div class="room_info_left">
+				<p>View: Center of the city </p>
+				<p>Size: 462 ft² / 43 m² </p>
+				<p>Bedding: 2 beds </p>
+				<p>Occupancy: up to 2 people</p>
+			</div>
+        	<div class="room_desc_right">
+				<p>If you're in search of an enjoyable time, come choose our standard room. This room offers enough space for you to spend quality time. We are honored of your presence
+				so we want to make sure to repay you your trust. Therefore, enjoy all the different amenities that we offer you. Find the following list of everything that
+				is at your disposition. </p>
+			</div>
+
+    	</div>
+
+		<div class="room_amenities">
+			<h3>Amenities: </h3>
+			<img src="../assets/standard.jpg" style=" width: 100%; height: 70%; border: 0; decoration : none;" alt="double_bed"> 
+			
+		</div>
+
+
+
+    </div>
+
+    <!-- ************************************************************** economy room part **************************************************************-->
+
+    <div class="banner_economy_room">
+      <div class="economy_room_pic_banner">
+        <img src="../assets/eco_room_banner.png" style="width:100%;" alt="king_bed">
+      </div>
+    </div>
+
+    <div class="booking_selection">
+      <form class="date" action="">
+        <label for="calendar">Check-in date : </label>
+        <input type="date" id="checkin" name="checkin">
+      </form>
+      <form class="date" action="">
+        <label for="calendar">Check-out date: </label>
+        <input type="date" id="checkout" name="checkout">
+      </form>
+      <form class="nb_adult" action="">
+        <label for="adult">Adults :</label>
+        <input type="number" id="adult" name="adult" step="1">
+      </form>
+      <form class="nb_kids" action="">
+        <label for="kids">Children :</label>
+        <input type="number" id="kids" name="kids" step="1">
+        <input type="submit">
+      </form>
+    </div>
+
+  <div class="room_info">
+
+    <div class="room_intro">
+      <h2>Economy Room N02 </h2>
+    </div>
+
+    <div class="eco_desc">
+
+      <div class="room_info_left">
+        <p>View: Center of the city </p>
+        <p>Size: 538 ft² / 50 m² </p>
+        <p>Bedding: 2 beds </p>
+        <p>Occupancy: up to 2 people</p>
+
+      </div>
+      <div class="room_desc_right">
+        <p>A modern and classy room.
+          Embodying the spirit of hospitality, the interior design is an
+          harmonious blend of modern elements. The bathing area features a spacious bathtub hewn from stone.
+           A graceful and tranquil space to return to after your serene and delightful city adventures.
+         </p>
+      </div>
+
+    </div>
+
+	<div class="room_amenities">
+		<h3>Amenities: </h3>
+		<img src="../assets/economy.jpg" style=" width: 100%; height: 70%; border: 0; decoration : none;" alt="double_bed"> 
+	</div>
+
+  </div>
+
+ <!-- ************************************************************** suite room part **************************************************************-->
+
+ <div class="banner_economy_room">
+   <div class="economy_room_pic_banner">
+     <img src="../assets/suite_home.jpeg" style="width:100%;height: 800px;" alt="king_bed">
+   </div>
+ </div>
+
+ <div class="booking_selection">
+   <form class="date" action="">
+     <label for="calendar">Check-in date : </label>
+     <input type="date" id="checkin" name="checkin">
+   </form>
+   <form class="date" action="">
+     <label for="calendar">Check-out date: </label>
+     <input type="date" id="checkout" name="checkout">
+   </form>
+   <form class="nb_adult" action="">
+     <label for="adult">Adults :</label>
+     <input type="number" id="adult" name="adult" step="1">
+   </form>
+   <form class="nb_kids" action="">
+     <label for="kids">Children :</label>
+     <input type="number" id="kids" name="kids" step="1">
+     <input type="submit">
+   </form>
+ </div>
+
+<div class="room_info">
+
+ <div class="room_intro">
+   <h2>Suite Room N03 </h2>
+ </div>
+
+ <div class="eco_desc">
+
+   <div class="room_info_left">
+     <p>View: Garden </p>
+     <p>Size: 1087–1194 ft² / 101–111m² </p>
+     <p>Bedding: 1 King </p>
+     <p>Occupancy: 3 </p>
+
+   </div>
+   <div class="room_desc_right">
+     <p>Measuring over 100m² and consisting of separate living room and bedroom areas,
+        the Suite room is the perfect place to enjoy the four seasons – the breathtaking beauty of nature in the spring,
+        in summer the garden is resplendently verdant,
+        the colors of autumn are so striking, and in winter the snowscape is a wonder to behold. </p>
+   </div>
+   </div>
+
+ </div>
+      <div class="room_amenities">
+        <h3>Amenities: </h3>
+		<img src="../assets/suite.jpg" style=" width: 100%; height: 70%; border: 0; decoration : none;" alt="double_bed">   
+	</div>
+
+    
+</body>
+
 	<footer>
 		<p> <b> Follow us on: </b> </p>
 		<br>
@@ -66,8 +244,106 @@
 			</tr>
 		</table>
 	</footer>
-</body>
+
 </template>
+
+
+<style scoped>
+		/*border: 2px solid black;*/
+
+	.eco_room_banner{
+	width: 100%;
+	height: 10%;
+	}
+
+	.booking_selection{
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	font-size: 20px;
+	padding: 15px;
+	margin-left: 25%;
+	margin-bottom: 5%;
+	width: 1000px;
+	height: 70px;
+	position: relative;
+	opacity: 0.95;
+	justify-content: center;
+	align-items: center;
+	}
+
+	p{
+	font-size: 20px;
+	}
+
+	.eco_desc{
+	display: flex;
+	flex-direction: row;
+	height: 300px;
+	margin-bottom: 5%;
+	}
+
+	.room_intro{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin-top: auto;
+	border-bottom : solid 1px black;
+	}
+
+	.room_info_left{
+	width: 50%;
+	height: 100%;
+	border-right : solid 1px black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	}
+
+	.room_desc_right{
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 30px;
+
+	}
+
+	.room_page{
+	background-color: #e6e2d3;
+	}
+
+	.booking_select{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: 40px;
+	}
+
+	.room_amenities{
+	width: 50%;
+	margin-bottom: 100px;
+	}
+
+
+
+
+	img{
+	border-radius: 0px;
+	box-shadow: 0px 0px;
+
+	}
+
+	img:hover {
+	filter: invert(0%);
+}
+
+
+
+
+</style>
 
 <script>
   export default{
