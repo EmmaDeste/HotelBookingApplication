@@ -1,55 +1,56 @@
 <template>
     <body id="con">
     	<header>
-		<nav> 
-			<img id="logo" src="../assets/logo.jpg"> 
-			<ul class="menu"> 
-                <li> <p v-on:click=link_home()> <span id="home"></span></p></li>
-				<li> <p v-on:click=link_rooms()> <span id="rooms"></span></p></li>
-				<li> <p v-on:click=link_booking()> <span id="booking"></span></p></li>
-				<li> <p v-on:click=link_restaurant()> <span id="restaurant"></span></p></li>
-				<li> <p v-on:click=link_events()> <span id="events"></span></p></li>
-				<li> <p v-on:click=link_about()> <span id="about"></span></p></li>
-				<li> <p v-on:click=link_enquiry()> <span id="enquiries"></span></p></li>
-				<li> <p v-on:click=link_feedbacks()> <span id="feedback"></span></p></li>
-				<li> <p><span id="contact"></span></p></li>
-			</ul>
-			<br>
-			<br>
-			<ul> 
-				<li class="roll"> <span id="language"></span> <img id="world" src="../assets/world.jpg">
-					<ul class="options"> 
-						<li id="af" v-on:click=afrikaans()> Afrikaans </li>
-						<li id="eng" v-on:click=english()> English </li>
-						<li id="fr" v-on:click=francais()> French </li>
-						<li id="ge" v-on:click=deutsch()> Deutsch </li>
-						<li id="es" v-on:click=espanol()> Español </li>
-					</ul> 
-				</li>
-			</ul>
-		</nav> 
+			<nav> <!-- Here is the navigation bar -->
+				<img id="logo" src="../assets/logo.jpg"> 
+				<ul class="menu"> 
+					<li> <p v-on:click=link_home()> <span id="home"></span></p></li>
+					<li> <p v-on:click=link_rooms()> <span id="rooms"></span></p></li>
+					<li> <p v-on:click=link_booking()> <span id="booking"></span></p></li>
+					<li> <p v-on:click=link_restaurant()> <span id="restaurant"></span></p></li>
+					<li> <p v-on:click=link_events()> <span id="events"></span></p></li>
+					<li> <p v-on:click=link_about()> <span id="about"></span></p></li>
+					<li> <p v-on:click=link_enquiry()> <span id="enquiries"></span></p></li>
+					<li> <p v-on:click=link_feedbacks()> <span id="feedback"></span></p></li>
+					<li> <p><span id="contact"></span></p></li>
+				</ul>
+				<br>
+				<br>
+				<ul> <!-- Here is the choice of language -->
+					<li class="roll"> <span id="language"></span> <img id="world" src="../assets/world.jpg">
+						<ul class="options"> 
+							<li id="af" v-on:click=afrikaans()> Afrikaans </li>
+							<li id="eng" v-on:click=english()> English </li>
+							<li id="fr" v-on:click=francais()> French </li>
+							<li id="ge" v-on:click=deutsch()> Deutsch </li>
+							<li id="es" v-on:click=espanol()> Español </li>
+						</ul> 
+					</li>
+				</ul>
+			</nav> 
 		</header>
-			
-		<h1> Our contacts </h1>
+			<!-- Here are the informations for the clients to contact the hotel-->
+		<h1> <span id="ContactPageL1"></span></h1>
 		
 		<br> <br> 
 
-		<p> Reach us by phone: </p>
+		<p> <span id="ContactPageL2"></span> </p>
 		<p> <b> +27 21 441 0000 </b> </p>
 
 		<br>
 
-		<p> Reach us by e-mail: </p>
+		<p> <span id="ContactPageL3"></span>  </p>
 		<p> <b> EMA23@gmail.com </b> </p>
 			
 		<br> <br> 
 		
-		<p> Come enjoy a <b> marvelous stay! </b> </p>
-		<br>
+		<p> <span id="ContactPageL4"></span>  </p>
+		<br><!-- Here is the localisation of the hotel taken on google maps -->
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7104472.142610871!2d21.413728249999995!3d-29.60425199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6bc8d7b4b35b7%3A0x45758d3beb386408!2sEMA!5e0!3m2!1sen!2sza!4v1668861588930!5m2!1sen!2sza" 
 		width="700" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 		<br> <br> 
 		<footer>
+			<!-- Here is the footer that contains the social medias of the hotel-->
 			<p> <b> Follow us on: </b> </p>
 			<br>
 			<table class="socialm"> 
@@ -87,6 +88,7 @@
 </template>
 
 <style>
+/* Here is the css concerning the body of the contact page*/ 
 #con{
 	background-image: linear-gradient(to right top, transparent, rgb(51, 30, 28)), url("../assets/hotelext.jpg");
 	background-repeat: no-repeat;
@@ -98,6 +100,7 @@
 <script>
   export default{
     name:'home',
+	//Here are the arrays that contain the traductions in each language
     data(){return {nLangue:1, 
 		listTradHome:["TUIS","HOME","ACCUEIL","HOME","HOME"],
 		listTradRooms:["KAMERS","ROOMS","CHAMBRES","ZIMMERS","HABITACIÓN"],
@@ -108,8 +111,16 @@
 		listTradEnquiries:["NAVRAE","ENQUIRIES","RETOURS","ANFRAGEN","PREGUNTES"],
 		listTradFeedbacks:["TERUGVOER","FEEDBACKS","AVIS","FEEDBACKS","CRITICA"],
 		listTradContact:["KONTAK","CONTACT","CONTACT","KONTACT","CONTACTO"],
-		listTradLanguage:["TAAL","LANGUAGE","LANGUE","SPRACHE","IDIOMA"]}},
+		listTradLanguage:["TAAL","LANGUAGE","LANGUE","SPRACHE","IDIOMA"],
+
+		listTradPageContactL1:["Ons kontakte ","Our contacts ","Nos contacts","Unsere Kontakte","Nuestros contactos"],
+		listTradPageContactL2:["Bereik ons telefonies: ","Reach us by phone: ","Joignez-nous par téléphone:","Erreichen Sie uns per Telefon: ","Llámenos por teléfono: "],
+		listTradPageContactL3:["Bereik ons per e-pos: ","Reach us by e-mail: ","Nous joindre par e-mail:","Erreichen Sie uns per E-Mail: ","Contacte con nosotros por correo electrónico: "],
+		listTradPageContactL4:["Kom geniet 'n wonderlike verblyf!","Come enjoy a marvelous stay!","Venez profiter d'un merveilleux séjour !","Kommen Sie und genießen Sie einen wunderbaren Aufenthalt!","¡Venga a disfrutar de una maravillosa estancia!"]
+		}
+	},
     methods:{
+		//Here are the functions that allow to switch between the different pages from the navigation bar
       link_about: function(event){
         this.$router.push({path: '/about'})
       },
@@ -134,6 +145,7 @@
 	  link_feedbacks: function(event){
         this.$router.push({path: '/feedbacks'})
       },
+	  //Here are the functions that allow to change the language
 	  francais: function(event){
         	this.nLangue=2;
 			console.log("fr");
@@ -143,22 +155,23 @@
 			this.nLangue=0;
 				console.log("af");
 				this.trad();
-			},
+		},
 			english:function(event){
 				this.nLangue=1;
 				console.log("eng");
 				this.trad();
-			},
+		},
 			deutsch:function(event){
 				this.nLangue=3;
 				console.log("ge");
 				this.trad();
-			},
+		},
 			espanol:function(event){
 				this.nLangue=4;
 				console.log("es");
 				this.trad();
-			},			
+		},			
+			//Here are the commands that link the texts and the arrays containing the text in all the languages
 			trad:function(event){
 				document.getElementById("home").innerHTML = this.listTradHome[this.nLangue];
 				document.getElementById("rooms").innerHTML = this.listTradRooms[this.nLangue];
@@ -170,5 +183,12 @@
 				document.getElementById("feedback").innerHTML = this.listTradFeedbacks[this.nLangue];
 				document.getElementById("contact").innerHTML = this.listTradContact[this.nLangue];
 				document.getElementById("language").innerHTML = this.listTradLanguage[this.nLangue];
-			}}}
+				
+				document.getElementById("ContactPageL1").innerHTML = this.listTradPageContactL1[this.nLangue];
+				document.getElementById("ContactPageL2").innerHTML = this.listTradPageContactL2[this.nLangue];
+				document.getElementById("ContactPageL3").innerHTML = this.listTradPageContactL3[this.nLangue];
+				document.getElementById("ContactPageL4").innerHTML = this.listTradPageContactL4[this.nLangue];
+		}
+	}
+}
 </script>
