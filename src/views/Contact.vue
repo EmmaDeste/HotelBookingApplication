@@ -1,5 +1,5 @@
 <template>
-    <body>
+    <body id="con">
     	<header>
 		<nav> 
 			<img id="logo" src="../assets/logo.jpg"> 
@@ -46,11 +46,9 @@
 		
 		<p> Come enjoy a <b> marvelous stay! </b> </p>
 		<br>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105947.72349937417!2d18.24880060548985!3d-33.91883894623095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc674f2bf46e31%3A0xa7cd3db2a8507439!2sCape%20Town%20Stadium!5e0!3m2!1sen!2sza!4v1663018653181!5m2!1sen!2sza" 
-			width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7104472.142610871!2d21.413728249999995!3d-29.60425199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6bc8d7b4b35b7%3A0x45758d3beb386408!2sEMA!5e0!3m2!1sen!2sza!4v1668861588930!5m2!1sen!2sza" 
+		width="700" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 		<br> <br> 
-
 		<footer>
 			<p> <b> Follow us on: </b> </p>
 			<br>
@@ -87,6 +85,15 @@
 		</footer>
 	</body>
 </template>
+
+<style>
+#con{
+	background-image: linear-gradient(to right top, transparent, rgb(51, 30, 28)), url("../assets/hotelext.jpg");
+	background-repeat: no-repeat;
+	background-size:100%;
+	color:aliceblue
+}
+</style>
 
 <script>
   export default{
