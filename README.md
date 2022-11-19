@@ -1,19 +1,3 @@
 # ninja-jobs
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+South African Project - lead by of a group 3 students: Johanna, Asma and me Emma

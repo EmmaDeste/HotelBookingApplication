@@ -4,7 +4,6 @@ import About from '../views/About.vue'
 import Booking from '../views/Booking.vue'
 import Contact from '../views/Contact.vue'
 import Enquiry from '../views/Enquiry.vue'
-import Events from '../views/Events.vue'
 import Feedbacks from '../views/Feedbacks.vue'
 import Restaurant from '../views/Restaurant.vue'
 import Rooms from '../views/Rooms.vue'
@@ -34,11 +33,6 @@ const routes = [
     path: '/enquiry',
     name: 'Enquiry',
     component: Enquiry
-  },
-  {
-    path: '/events',
-    name: 'Events',
-    component: Events
   },
   {
     path: '/feedbacks',
