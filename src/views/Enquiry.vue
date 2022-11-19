@@ -35,17 +35,18 @@
 				</nav> 
 		</header>
             
+		<!-- Indicate the purpose of the page -->
 		<h1> <span id="know"></span> </h1>
         <br> 
             
-        <form class="review-form">
+        <form class="review-form"> <!-- Create a form to get complains from the clients-->
              <h3> <span id="coord"></span>: </h3>
             <br>
             <label for="name"> <span id="name"></span>: </label>
             <input v-model="name"> 
             <br><br>
-            <label for="password"> <span id="password"></span>: </label>
-            <input v-model="password"> 
+            <label for="password"> <span id="password"></span>: </label> <!-- Indicates the instruction of what to enter -->
+            <input v-model="password">  <!-- Input field so that the user can type his password -->
 
             <br><br><br>
 
@@ -62,6 +63,8 @@
             <h3> <span id="type"></span>: </h3>
             <br>
             <label for="enqui"></label>
+			<!-- Options to select using radiobuttons: type of enquity here -->
+			<!-- only one can be clicked at a time -->
              <select v-model="enqui">
                 <option> <span id="billing"></span> </option>
                 <option> <span id="stay"></span> </option>
@@ -80,55 +83,58 @@
             
         <br>
 
+		<!-- Add a SUBMIT button - calls the corresponding function -->
         <button id="listButton" v-on:click=listReviews()> SUBMIT </button>
             
         <br><br><br>
 
+		<!-- Textareato display the review - consider each attribute of the review and display them -->
         <div readonly id="review_container" v-for="item in reviews">
+			<!-- Display the {{review's attribute}} in the textarea -->
             <b1>{{item.name}}</b1> : <b2>{{item.checkinD}}</b2> - <b2>{{item.checkoutD}}</b2>
             : <b3>{{item.comment}}</b3>
         </div>
 
         <br> <br> 
 
-    <footer>
-		<!-- indicate our social medias, as the footer of each page -->
-        <p> <b> <span id="follow"></span> </b> </p>
-        <br>
+		<footer>
+			<!-- indicate our social medias, as the footer of each page -->
+			<p> <b> <span id="follow"></span> </b> </p>
+			<br>
 
-		<!-- table listing the different social medias, taking the logos from the assets folder -->
-        <table class="socialm"> 
-            <tr> 
-                <td> <img id="fb" src="../assets/facebook.png">  </td>
-                <td id="fb"> EMAhotel </td>
-            </tr>
-            <tr>
-                <td> <img id="insta" src="../assets/instagram.png">  </td>
-                <td id="insta"> EMAhotel </td>
-            </tr>
-            <tr>
-                <td> <img id="in" src="../assets/LinkedIn.png">  </td>
-                <td id="in"> EMAhotel </td>
-            </tr>
-            <tr>
-                <td> <img id="snap" src="../assets/snapchat.png">  </td>
-                <td id="snap"> EMAhotel </td>
-            </tr>
-            <tr>
-                <td> <img id="tw" src="../assets/twitter.png"> </td>
-                <td id="tw"> EMAhotel </td>
-            </tr>
-            <tr>
-                <td> <img id="yt" src="../assets/youtube.png"> </td>
-                <td id="yt"> EMAhotel </td>
-            </tr>
-            <tr>
-                <td> <img id="tk" src="../assets/TikTok.png"> </td>
-                <td id="tk"> EMAhotel </td>
-            </tr>
-        </table>
-    </footer>
-</body>
+			<!-- table listing the different social medias, taking the logos from the assets folder -->
+			<table class="socialm"> 
+				<tr> 
+					<td> <img id="fb" src="../assets/facebook.png">  </td>
+					<td id="fb"> EMAhotel </td>
+				</tr>
+				<tr>
+					<td> <img id="insta" src="../assets/instagram.png">  </td>
+					<td id="insta"> EMAhotel </td>
+				</tr>
+				<tr>
+					<td> <img id="in" src="../assets/LinkedIn.png">  </td>
+					<td id="in"> EMAhotel </td>
+				</tr>
+				<tr>
+					<td> <img id="snap" src="../assets/snapchat.png">  </td>
+					<td id="snap"> EMAhotel </td>
+				</tr>
+				<tr>
+					<td> <img id="tw" src="../assets/twitter.png"> </td>
+					<td id="tw"> EMAhotel </td>
+				</tr>
+				<tr>
+					<td> <img id="yt" src="../assets/youtube.png"> </td>
+					<td id="yt"> EMAhotel </td>
+				</tr>
+				<tr>
+					<td> <img id="tk" src="../assets/TikTok.png"> </td>
+					<td id="tk"> EMAhotel </td>
+				</tr>
+			</table>
+		</footer>
+	</body>
 </template>
 
 <script>
@@ -200,11 +206,11 @@
 
 		//LANGUAGE SETTINGS FUNCTIONS
     	francais: function(event){
-			//todo
+			//set the language to an integer identifier
         	this.nLangue=2;
-			//todo
+			//debugging help to know if the translation function is well executed
 			console.log("fr");
-			//todo
+			//call the function to translate the whole page
 			this.trad();
     	},
 		afrikaans: function(event){
@@ -229,7 +235,8 @@
 		},          
 		//TRANSLATIONS SETTINGS FUNCTION
     	trad:function(event){
-			//todo
+			//associate each text identifier - recognized by ID
+			//to its corresponding translation - which index in the array correspond to the identifier of the language
 			document.getElementById("home").innerHTML = this.listTradHome[this.nLangue];
 			document.getElementById("rooms").innerHTML = this.listTradRooms[this.nLangue];
 			document.getElementById("booking").innerHTML = this.listTradBooking[this.nLangue];
@@ -259,17 +266,17 @@
 
 		//SUBMIT REVIEWS FUNCTIONS
 		listReviews:function(event){
-			//todo
+			//verify that the all the information are well inputed
 			if (this.name != '' && this.password != '' && this.checkinD != '' && this.checkoutD != '' && this.comment != '' ){
-				//todo
+				//debugging help to verify that the IF condition is respected
 				console.log("No empty boxes");
-				//todo
+				//add the inputed information into the array of reviews
 				this.reviews.push({name: this.name, checkinD: this.checkinD, checkoutD: this.checkoutD, comment: this.comment});
 			}
 			//If there is no blank boxes
 			else{
 				console.log("Info missing");
-				//todo
+				//indicates to the user when one field is empty
 				alert("Information missing");
 			}
     	}
