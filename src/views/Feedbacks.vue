@@ -2,37 +2,37 @@
     <body> 
         <header>
 		<!-- add a navigation bar, as the header of each page -->
-        <nav> 
-			<!-- logo of the hotel -->
-            <img id="logo" src="../assets/logo.jpg"> 
+			<nav> 
+				<!-- logo of the hotel -->
+				<img id="logo" src="../assets/logo.jpg"> 
 
-			<!--  Menu of the navigation bar, constituted of the links to the other pages-->
-            <ul class="menu"> 
-                <li> <p v-on:click=link_home()> <span id="home"></span></p></li>
-                    <li> <p v-on:click=link_rooms()> <span id="rooms"></span></p></li>
-                    <li> <p v-on:click=link_booking()> <span id="booking"></span></p></li>
-                    <li> <p v-on:click=link_restaurant()> <span id="restaurant"></span></p></li>
-                    <li> <p v-on:click=link_about()> <span id="about"></span></p></li>
-                    <li> <p v-on:click=link_enquiry()> <span id="enquiries"></span></p></li>
-                    <li> <p><span id="feedbacks"></span></p></li>
-                    <li> <p v-on:click=link_contact()> <span id="contact"></span></p></li>
-                </ul>
-                <br><br>
-                <ul> 
-					<!-- Scolling bar to select the language -->
-                    <li class="roll"> <span id="language"></span> <img id="world" src="../assets/world.jpg">
-						<!-- Options of language to read -->
-                        <ul class="options">
-                            <li id="af" v-on:click=afrikaans()> Afrikaans </li>
-                            <li id="eng" v-on:click=english()> English </li>
-                            <li id="fr" v-on:click=francais()> French </li>
-                            <li id="ge" v-on:click=deutsch()> Deutsch </li>
-                            <li id="es" v-on:click=espanol()> Español </li>
-                        </ul> 
-                    </li>
-                </ul>
-            </nav> 
-    </header>
+				<!--  Menu of the navigation bar, constituted of the links to the other pages-->
+				<ul class="menu"> 
+					<li> <p v-on:click=link_home()> <span id="home"></span></p></li>
+						<li> <p v-on:click=link_rooms()> <span id="rooms"></span></p></li>
+						<li> <p v-on:click=link_booking()> <span id="booking"></span></p></li>
+						<li> <p v-on:click=link_restaurant()> <span id="restaurant"></span></p></li>
+						<li> <p v-on:click=link_about()> <span id="about"></span></p></li>
+						<li> <p v-on:click=link_enquiry()> <span id="enquiries"></span></p></li>
+						<li> <p><span id="feedbacks"></span></p></li>
+						<li> <p v-on:click=link_contact()> <span id="contact"></span></p></li>
+					</ul>
+					<br><br>
+					<ul> 
+						<!-- Scolling bar to select the language -->
+						<li class="roll"> <span id="language"></span> <img id="world" src="../assets/world.jpg">
+							<!-- Options of language to read -->
+							<ul class="options">
+								<li id="af" v-on:click=afrikaans()> Afrikaans </li>
+								<li id="eng" v-on:click=english()> English </li>
+								<li id="fr" v-on:click=francais()> French </li>
+								<li id="ge" v-on:click=deutsch()> Deutsch </li>
+								<li id="es" v-on:click=espanol()> Español </li>
+							</ul> 
+						</li>
+					</ul>
+				</nav> 
+    		</header>
 
 	<!-- Indicate the purpose of the page: Have clients' feedbacks -->
     <h1> <span id="experience"></span> </h1>
@@ -173,7 +173,7 @@
         <p> <b> <span id="follow"></span> </b> </p>
         <br>
 
-		<!-- table listing the different social medias -->
+		<!-- table listing the different social medias, taking the logos from the assets folder -->
         <table class="socialm"> 
             <tr> 
                 <td> <img id="fb" src="../assets/facebook.png">  </td>
@@ -210,9 +210,13 @@
 
 <script>
   export default{
+	//set the identifier name of this page, used in the router file
     name:'home',
+
     data(){return {
-		nLangue:1, // indicates the 
+		nLangue:1, //set the default language to english, which identifier is 1
+
+		//The arrays containing the traductions in each 5 languages
         listTradHome:["TUIS","HOME","ACCUEIL","HOME","HOME"],
         listTradRooms:["KAMERS","ROOMS","CHAMBRES","ZIMMERS","CUARTO"],
         listTradBooking:["BESPREKING","BOOKING","RÉSERVER","BUCHUNG","RESERVAR"],
@@ -244,9 +248,10 @@
         listTradOpen:["Ek is oop daarvoor","I am open to it","Je suis ouvert à cette perspective","Ich bin offen dafür","Estoy abierta a eso"],
         listTradInto:["Ek is nie daarin nie","I'm not into it","Je ne suis pas enclin à revenir","Ich bin nicht dabei","No estoy en eso"],
         listTradNever:["Ek sal nooit terugkom nie","I will never come back","Je ne reviendrais jamais","Ich werde nie wiederkommen","Nunca volveré"],
-        listTradFollow:["Volg ons:","Follow us:","Suivez-nous:","Folge uns:","Síganos:"],
+        listTradFollow:["Volg ons:","Follow us:","Suivez-nous:","Folge uns:","Síganos:"]
     }},
     methods:{
+		//Routing functions
     	link_about: function(event){
         	this.$router.push({path: '/about'})
       	},
@@ -269,11 +274,15 @@
 			this.$router.push({path: '/rooms'})
 		},
 
+		//Language settings functions
     	francais: function(event){
-			this.nLangue=2;
+			//set the language to an integer identifier
+        	this.nLangue=2;
+			//debugging help to know if the translation function is well executed
 			console.log("fr");
+			//call the function to translate the whole page
 			this.trad();
-			},
+		},
     	afrikaans: function(event){
             this.nLangue=0;
             console.log("af");
@@ -294,7 +303,11 @@
             console.log("es");
             this.trad();
         },          
+
+		//Translations settings function
         trad:function(event){
+			//associate each text identifier - recognized by ID
+			//to its corresponding translation - which index in the array correspond to the identifier of the language
             document.getElementById("home").innerHTML = this.listTradHome[this.nLangue];
             document.getElementById("rooms").innerHTML = this.listTradRooms[this.nLangue];
             document.getElementById("booking").innerHTML = this.listTradBooking[this.nLangue];
@@ -336,8 +349,10 @@
 </script>
 
 <style>
+	/* STYLING BODY OF THE FEEDBACK PAGE */
 	body{
 		background-color: papayawhip;
+		/*center the questions text*/ 
 		text-align: center;
 	}
 
@@ -346,6 +361,7 @@
 		padding: 0;
 	}
 
+	/* Styling the titles and paragraph */
 	h1{
 		color: violet;
 	}
@@ -361,12 +377,13 @@
 
 
 	/* STYLING THE STAR-RATING */
+	/* Global instruction */
 	.rate {
 		float: left;
 		height: 46px;
 		padding: 0 10px;
 
-		/*to center the stars on the page*/
+		/*center the stars on the page*/
 		display: block;
 		margin-left: 70px;
 		width: 50%;
