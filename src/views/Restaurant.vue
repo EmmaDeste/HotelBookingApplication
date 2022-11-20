@@ -37,7 +37,7 @@
 		<br><br><br>
 		
 		<div  id="resto">
-			<div class="contour"><b>	
+			<div class="contour"><b>	<!-- Here is the code that allows the user to get from the summary to the sections by a click -->
 				<a class="btn-primary" @click="scrollToAnchorPoint('1')"> <h2 id="title2"><span id="speciality1"></span></h2></a>
 				<br>
 				<ol><a class="btn-primary" @click="scrollToAnchorPoint('2')"> <h2 id="title2"><span id="fullM1"></span>:</h2> </a></ol>
@@ -57,7 +57,7 @@
 				<img id="dayS" src="../assets/Specialityoftheday.jpg">
 			</div>
 
-			<div class="sotd">
+			<div class="sotd"><!-- Here is the speciality of the day available in all languages-->
 				<h2 id="title2"> <span id="speciality"></span> </h2>
 				<br>
 				<h3 id="title3"> <span id="four"></span> </h3>
@@ -84,7 +84,7 @@
 		</div>
 			
 		<br> 
-
+        <!-- Here are the images of the plates -->
 		<img src="../assets/food1.jpg" id="food1">
 		<img src="../assets/food7.jpg" id="food7">
 		<img src="../assets/food2.jpg" id="food2">
@@ -101,7 +101,7 @@
 		<br><br><br><br>
 
 
-		<div ref="3" class="Desserts"> 
+		<div ref="3" class="Desserts"> <!-- Here are the images of the desserts -->
 			<h3 id="title3"><span id="desserts"></span>:</h3>
 		</div>
 		<img src="../assets/dessert3.jpg" id="dessert3">
@@ -114,7 +114,7 @@
 				
 		<br><br><br><br><br><br><br>
 			 
-		<div ref="4" class="Infos"> 
+		<div ref="4" class="Infos"> <!-- Here are the informations to reach the restaurant-->
 			<h2 id="title2"><span id="info"></span></h2>
 			<br>
 			<span id="number"></span> : <b>+27 6 67 74 36 85</b>
@@ -351,7 +351,7 @@
 	#title2{ 
 		font-weight: bold;
 		font-size: 30px;
-		color: purple;
+		color: rgb(128, 77, 0);
 	}
 	#title3 {
 		font-weight: bold;
