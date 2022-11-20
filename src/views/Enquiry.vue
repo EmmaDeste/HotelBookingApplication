@@ -1,5 +1,5 @@
 <template>
-    <body>
+    <body id="Enquiry">
         <header>
 			<!-- add a navigation bar, as the header of each page -->
 			<nav> 
@@ -232,7 +232,8 @@
 			this.nLangue=4;
 			console.log("es");
 			this.trad();
-		},          
+		},  
+		        
 		//TRANSLATIONS SETTINGS FUNCTION
     	trad:function(event){
 			//associate each text identifier - recognized by ID
@@ -284,6 +285,11 @@
 </script>
 
 <style>
+
+	#Enquiry{ /* body of the Enquiry page */
+		background-image: linear-gradient(to right top, transparent, mistyrose), url("../assets/backgroundEnquiry.jpg");
+	}
+
 	/* Styling the display of the clients' reviews */
 	b1{
 		font-weight: bold;
