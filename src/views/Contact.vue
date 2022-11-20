@@ -42,13 +42,13 @@
 		<div class="contact">
 			<p> <span id="ContactPageL2"></span> </p>
 			<br>
-			<p> <b1> +27 21 441 0000 </b1> </p>
+			<p id="number"> +27 21 441 0000 </p>
 
 			<br>
 
 			<p> <span id="ContactPageL3"></span>  </p>
 			<br>
-			<p> <b1> EMA23@gmail.com </b1> </p>
+			<p id="mail"> EMA23@gmail.com </p>
 				
 			<br> <br> <br><br>
 			
@@ -213,11 +213,16 @@
 		color:aliceblue
 	}
 
-	b1{
+	#number,#mail{
 		font-weight: bold;;
-		color: yellow;
+		color: rgb(215, 199, 219);
 	}
 	#ContactPageL2, #ContactPageL3, #ContactPageL4{
-		color: orange;
+		color: rgb(221, 156, 37);
+		font-size: large;
+		font-weight: bold;
+	}
+	#ContactPageL1{
+		color: rgb(200, 163, 186);
 	}
 </style>
