@@ -1,5 +1,5 @@
 <template>
-    <body>
+    <body id="Contact">
     	<header>
 			<!-- add a navigation bar, as the header of each page -->
 			<nav>
@@ -42,13 +42,13 @@
 		<div class="contact">
 			<p> <span id="ContactPageL2"></span> </p>
 			<br>
-			<p> <b> +27 21 441 0000 </b> </p>
+			<p> <b1> +27 21 441 0000 </b1> </p>
 
 			<br>
 
 			<p> <span id="ContactPageL3"></span>  </p>
 			<br>
-			<p> <b> EMA23@gmail.com </b> </p>
+			<p> <b1> EMA23@gmail.com </b1> </p>
 				
 			<br> <br> <br><br>
 			
@@ -106,9 +106,11 @@
 
 <script>
   export default{
+	//set the identifier name of this page, used in the router file
     name:'home',
+
 	//Here are the arrays that contain the traductions in each language
-    data(){return {nLangue:1, 
+    data(){return {nLangue:1,  //set the default language to english, which identifier is 1
 		listTradHome:["TUIS","HOME","ACCUEIL","HOME","HOME"],
 		listTradRooms:["KAMERS","ROOMS","CHAMBRES","ZIMMERS","HABITACIÓN"],
 		listTradBooking:["BESPREKING","BOOKING","RÉSERVER","BUCHUNG","RESERVAR"],
@@ -134,7 +136,7 @@
 			this.$router.push({path: '/booking'})
 		},
 		link_home: function(event){
-			this.$router.push({path: '/'})
+			this.$router.push({path: '/'});
 		},
 		link_enquiry: function(event){
 			this.$router.push({path: '/enquiry'})
@@ -148,10 +150,14 @@
 		link_feedbacks: function(event){
 			this.$router.push({path: '/feedbacks'})
 		},
+
 	  	//Here are the functions that allow to change the language
 	  	francais: function(event){
+        	//set the language to an integer identifier
         	this.nLangue=2;
+			//debugging help to know if the translation function is well executed
 			console.log("fr");
+			//call the function to translate the whole page
 			this.trad();
         },
         afrikaans: function(event){
@@ -164,10 +170,10 @@
 			console.log("eng");
 			this.trad();
 		},
-			deutsch:function(event){
-				this.nLangue=3;
-				console.log("ge");
-				this.trad();
+		deutsch:function(event){
+			this.nLangue=3;
+			console.log("ge");
+			this.trad();
 		},
 		espanol:function(event){
 			this.nLangue=4;
@@ -199,16 +205,17 @@
 </script>
 
 <style>
-	/* Here is the css concerning the body of the contact page*/ 
-	body{
+	/* body of the Contact page */
+	#Contact{
 		background-image: linear-gradient(to right top, transparent, rgb(51, 30, 28)), url("../assets/hotelext.jpg");
 		background-repeat: no-repeat;
 		background-size:100%;
 		color:aliceblue
 	}
 
-	b{
-	color: yellow;
+	b1{
+		font-weight: bold;;
+		color: yellow;
 	}
 	#ContactPageL2, #ContactPageL3, #ContactPageL4{
 		color: orange;
