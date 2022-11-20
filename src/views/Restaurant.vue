@@ -1,8 +1,12 @@
 <template>
-    <body>
-    	<header>
+    <body id="Restaurant">
+		<header>
+			<!-- add a navigation bar, as the header of each page -->
 			<nav> 
+				<!-- logo of the hotel -->
 				<img id="logo" src="../assets/logo.jpg"> 
+
+				<!--  Menu of the navigation bar, constituted of the links to the other pages-->
 				<ul class="menu"> 
 					<li> <p v-on:click=link_home()> <span id="home"></span></p></li>
 						<li> <p v-on:click=link_rooms()> <span id="rooms"></span></p></li>
@@ -15,7 +19,9 @@
 				</ul>
 				<br> <br>
 				<ul> 
+					<!-- Scolling bar to select the language -->
 					<li class="roll"> <span id="language"></span> <img id="world" src="../assets/world.jpg">
+						<!-- Options of language to read -->
 						<ul class="options"> 
 							<li id="af" v-on:click=afrikaans()> Afrikaans </li>
 							<li id="eng" v-on:click=english()> English </li>
@@ -32,19 +38,19 @@
 		
 		<div  id="resto">
 			<div class="contour"><b>	
-				<a class="btn-primary" @click="scrollToAnchorPoint('1')"> <h2><span id="speciality1"></span></h2></a>
+				<a class="btn-primary" @click="scrollToAnchorPoint('1')"> <h2 id="title2"><span id="speciality1"></span></h2></a>
 				<br>
-				<ol><a class="btn-primary" @click="scrollToAnchorPoint('2')"> <h2><span id="fullM1"></span>:</h2> </a></ol>
+				<ol><a class="btn-primary" @click="scrollToAnchorPoint('2')"> <h2 id="title2"><span id="fullM1"></span>:</h2> </a></ol>
 				<li><a class="btn-primary" @click="scrollToAnchorPoint('2')"> <span id="dishes1"></span> </a></li>
 				<li><a class="btn-primary" @click="scrollToAnchorPoint('3')"> <span id="desserts1"></span> </a></li>
 				<br>
-				<a class="btn-primary" @click="scrollToAnchorPoint('4')"> <h2><span id="info1"></span></h2> <br></a></b>
+				<a class="btn-primary" @click="scrollToAnchorPoint('4')"> <h2 id="title2"><span id="info1"></span></h2> <br></a></b>
 			</div>
 		</div>
 
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  
-		<br><br><br><br><br><br><br><br><br><br><br>
+
+    	<br><br><br>
 	
 		<div ref="1" class="container">  
 			<div class="sod">
@@ -52,11 +58,11 @@
 			</div>
 
 			<div class="sotd">
-				<h2> <span id="speciality"></span> </h2>
+				<h2 id="title2"> <span id="speciality"></span> </h2>
 				<br>
-				<h3> <span id="four"></span> </h3>
+				<h3 id="title3"> <span id="four"></span> </h3>
 				<br><br>
-				<p>
+				<p id="dayDish">
 					<span id="dayDesc0"></span> <br>
 					<span id="dayDesc1"></span>! <br><br>
 					<span id="dayDesc2"></span>. <br>
@@ -72,13 +78,13 @@
 		<br> <br> <br> <br> <br> <br> <br>  
 
 		<div ref="2" class="Plates">
-			<h2><span id="fullM"></span></h2>
+			<h2 id="title2"><span id="fullM"></span></h2>
 			<br>
-			<h3><span id="dishes"></span>:</h3>
+			<h3 id="title3"><span id="dishes"></span>:</h3>
 		</div>
 			
 		<br> 
-			
+
 		<img src="../assets/food1.jpg" id="food1">
 		<img src="../assets/food7.jpg" id="food7">
 		<img src="../assets/food2.jpg" id="food2">
@@ -96,7 +102,7 @@
 
 
 		<div ref="3" class="Desserts"> 
-			<h3><span id="desserts"></span>:</h3>
+			<h3 id="title3"><span id="desserts"></span>:</h3>
 		</div>
 		<img src="../assets/dessert3.jpg" id="dessert3">
 		<img src="../assets/dessert2.jpg" id="dessert2">
@@ -109,7 +115,7 @@
 		<br><br><br><br><br><br><br>
 			 
 		<div ref="4" class="Infos"> 
-			<h2><span id="info"></span></h2>
+			<h2 id="title2"><span id="info"></span></h2>
 			<br>
 			<span id="number"></span> : <b>+27 6 67 74 36 85</b>
 			<br>
@@ -167,8 +173,14 @@
 
 <script>
   export default{
+	//set the identifier name of this page, used in the router file
     name:'home',
-    data(){return {nLangue:1, 
+
+
+    data(){return {
+		nLangue:1, //set the default language to english, which identifier is 1
+
+		//The arrays containing the traductions in each 5 languages
 		listTradHome:["TUIS","HOME","ACCUEIL","HOME","HOME"],
 		listTradRooms:["KAMERS","ROOMS","CHAMBRES","ZIMMERS","HABITACIÓN"],
 		listTradBooking:["BESPREKING","BOOKING","RÉSERVER","BUCHUNG","RESERVAR"],
@@ -200,6 +212,7 @@
 		listTradFollow:["Volg ons:","Follow us:","Suivez-nous:","Folge uns:","Síganos:"]
 	}},
     methods:{
+		//ROUTING FUNCTIONS
     	link_about: function(event){
         	this.$router.push({path: '/about'})
     	},
@@ -221,9 +234,14 @@
 	  	link_feedbacks: function(event){
         	this.$router.push({path: '/feedbacks'})
      	},
+
+		//LANGUAGE SETTINGS FUNCTIONS
 	  	francais: function(event){
+        	//set the language to an integer identifier
         	this.nLangue=2;
+			//debugging help to know if the translation function is well executed
 			console.log("fr");
+			//call the function to translate the whole page
 			this.trad();
         },
         afrikaans: function(event){
@@ -246,143 +264,147 @@
 			console.log("es");
 			this.trad();
 		},			
-			trad:function(event){
-				document.getElementById("home").innerHTML = this.listTradHome[this.nLangue];
-				document.getElementById("rooms").innerHTML = this.listTradRooms[this.nLangue];
-				document.getElementById("booking").innerHTML = this.listTradBooking[this.nLangue];
-				document.getElementById("restaurant").innerHTML = this.listTradRestaurant[this.nLangue];
-				document.getElementById("about").innerHTML = this.listTradAbout[this.nLangue];
-				document.getElementById("enquiries").innerHTML = this.listTradEnquiries[this.nLangue];
-				document.getElementById("feedback").innerHTML = this.listTradFeedbacks[this.nLangue];
-				document.getElementById("contact").innerHTML = this.listTradContact[this.nLangue];
-				document.getElementById("language").innerHTML = this.listTradLanguage[this.nLangue];
 
-				document.getElementById("speciality1").innerHTML = this.listTradSpeciality[this.nLangue];
-				document.getElementById("fullM1").innerHTML = this.listTradFullM[this.nLangue];
-				document.getElementById("dishes1").innerHTML = this.listTradDishes[this.nLangue];
-				document.getElementById("desserts1").innerHTML = this.listTradDesserts[this.nLangue];
-				document.getElementById("info1").innerHTML = this.listTradInfo[this.nLangue];
+		//TRANSLATIONS SETTINGS FUNCTION
+		trad:function(event){
+			document.getElementById("home").innerHTML = this.listTradHome[this.nLangue];
+			document.getElementById("rooms").innerHTML = this.listTradRooms[this.nLangue];
+			document.getElementById("booking").innerHTML = this.listTradBooking[this.nLangue];
+			document.getElementById("restaurant").innerHTML = this.listTradRestaurant[this.nLangue];
+			document.getElementById("about").innerHTML = this.listTradAbout[this.nLangue];
+			document.getElementById("enquiries").innerHTML = this.listTradEnquiries[this.nLangue];
+			document.getElementById("feedback").innerHTML = this.listTradFeedbacks[this.nLangue];
+			document.getElementById("contact").innerHTML = this.listTradContact[this.nLangue];
+			document.getElementById("language").innerHTML = this.listTradLanguage[this.nLangue];
 
-				document.getElementById("speciality").innerHTML = this.listTradSpeciality[this.nLangue];
-				document.getElementById("four").innerHTML = this.listTradFour[this.nLangue];
-				document.getElementById("dayDesc0").innerHTML = this.listTradDayDesc0[this.nLangue];
-				document.getElementById("dayDesc1").innerHTML = this.listTradDayDesc1[this.nLangue];
-				document.getElementById("dayDesc2").innerHTML = this.listTradDayDesc2[this.nLangue];
-				document.getElementById("dayDesc3").innerHTML = this.listTradDayDesc3[this.nLangue];
-				document.getElementById("dayDesc4").innerHTML = this.listTradDayDesc4[this.nLangue];
-				document.getElementById("dayDesc5").innerHTML = this.listTradDayDesc5[this.nLangue];
-				document.getElementById("dayDesc6").innerHTML = this.listTradDayDesc6[this.nLangue];
-				document.getElementById("dayDesc7").innerHTML = this.listTradDayDesc7[this.nLangue];
+			document.getElementById("speciality1").innerHTML = this.listTradSpeciality[this.nLangue];
+			document.getElementById("fullM1").innerHTML = this.listTradFullM[this.nLangue];
+			document.getElementById("dishes1").innerHTML = this.listTradDishes[this.nLangue];
+			document.getElementById("desserts1").innerHTML = this.listTradDesserts[this.nLangue];
+			document.getElementById("info1").innerHTML = this.listTradInfo[this.nLangue];
 
-				document.getElementById("fullM").innerHTML = this.listTradFullM[this.nLangue];
-				document.getElementById("dishes").innerHTML = this.listTradDishes[this.nLangue];
-				document.getElementById("desserts").innerHTML = this.listTradDesserts[this.nLangue];
+			document.getElementById("speciality").innerHTML = this.listTradSpeciality[this.nLangue];
+			document.getElementById("four").innerHTML = this.listTradFour[this.nLangue];
+			document.getElementById("dayDesc0").innerHTML = this.listTradDayDesc0[this.nLangue];
+			document.getElementById("dayDesc1").innerHTML = this.listTradDayDesc1[this.nLangue];
+			document.getElementById("dayDesc2").innerHTML = this.listTradDayDesc2[this.nLangue];
+			document.getElementById("dayDesc3").innerHTML = this.listTradDayDesc3[this.nLangue];
+			document.getElementById("dayDesc4").innerHTML = this.listTradDayDesc4[this.nLangue];
+			document.getElementById("dayDesc5").innerHTML = this.listTradDayDesc5[this.nLangue];
+			document.getElementById("dayDesc6").innerHTML = this.listTradDayDesc6[this.nLangue];
+			document.getElementById("dayDesc7").innerHTML = this.listTradDayDesc7[this.nLangue];
 
-				document.getElementById("info").innerHTML = this.listTradInfo[this.nLangue];
-				document.getElementById("number").innerHTML = this.listTradNumber[this.nLangue];
-				document.getElementById("email").innerHTML = this.listTradEmail[this.nLangue];
-				document.getElementById("open").innerHTML = this.listTradOpen[this.nLangue];
-				document.getElementById("m_t").innerHTML = this.listTradM_T[this.nLangue];
-				document.getElementById("f_s").innerHTML = this.listTradF_S[this.nLangue];
+			document.getElementById("fullM").innerHTML = this.listTradFullM[this.nLangue];
+			document.getElementById("dishes").innerHTML = this.listTradDishes[this.nLangue];
+			document.getElementById("desserts").innerHTML = this.listTradDesserts[this.nLangue];
 
-				document.getElementById("follow").innerHTML = this.listTradFollow[this.nLangue];
-			},
+			document.getElementById("info").innerHTML = this.listTradInfo[this.nLangue];
+			document.getElementById("number").innerHTML = this.listTradNumber[this.nLangue];
+			document.getElementById("email").innerHTML = this.listTradEmail[this.nLangue];
+			document.getElementById("open").innerHTML = this.listTradOpen[this.nLangue];
+			document.getElementById("m_t").innerHTML = this.listTradM_T[this.nLangue];
+			document.getElementById("f_s").innerHTML = this.listTradF_S[this.nLangue];
 
-			scrollToAnchorPoint(refName) {
-				const el = this.$refs[refName]
-				el.scrollIntoView({ behavior: 'smooth'})
+			document.getElementById("follow").innerHTML = this.listTradFollow[this.nLangue];
+		},
+
+		scrollToAnchorPoint(refName) {
+			const el = this.$refs[refName]
+			el.scrollIntoView({ behavior: 'smooth'})
         }
 	}
 }
 </script>
 
 <style>
-#resto{
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	
-	background-image: url("../assets/resto.jpg");
-	background-size: cover;
-	background-position: center;
-}
+	#Restaurant{ /* body of the Restaurant page */
+		width: 100%;
+		height: 100%;
+		position: absolute;
 
-.contour{
+		background-image: url("../assets/resto.jpg");
+		background-size: cover;
+		background-position: center;
+		
+	}
+
+
+	.contour{
 		opacity: 0.9;
-        margin-left: 76.5%;
-        text-align: center;
-        background-color: white;
-        border:1px solid #000000;
-        width: 15.7%;
-        text-align: left;
-        font-size:x-large;
-        font-family:'Gill Sans', cursive;
-        color:rgb(188, 117, 36);
+		margin-left: 76.5%;
+		text-align: center;
+		background-color: white;
+		border:1px solid #000000;
+		width: 15.7%;
+		text-align: left;
+		font-size:x-large;
+		font-family:'Gill Sans', cursive;
+		color:rgb(188, 117, 36);
 		padding: 0.25%;
-    }
+	}
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center
-}
+	.container {
+	display: flex;
+	align-items: center;
+	justify-content: center
+	}
+	#title2{ 
+		font-weight: bold;
+		font-size: 30px;
+		color: purple;
+	}
+	#title3 {
+		font-weight: bold;
+		font-size: 26px;
+		color: orange;
+	}
+	#dayDish{
+		color: brown;
+	}
 
-h2{
-	font-weight: bold;
-	font-size: 30px;
-	color: purple;
-}
-h3 {
-	font-weight: bold;
-	font-size: 26px;
-	color: orange;
-}
-p{
-	color: brown;
-}
-
-.sod {
-	flex-basis:40%;
-}
-img{
-	width: 560px;
-}
-.sotd {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: large;
-  color: rgb(122, 72, 11);
-}
-#dayS{
-	display: block;
-	margin-left: -30px;
-	width: 95%;
-}
-
-#food1,#food7,#food2,#food3,#food6,#food11,#food13,#food8,#food12{
-	/* Asma's screen
-	width:500px;
-	height:300px; */
-
-	/* Emma'screen*/
-	width:450px;
-	height:250px;
-}
-#dessert2,#dessert3,#dessert4,#dessert5,#dessert7{
-	/* Asma's screen
-	padding: 1%;
-	width:400px;
-	height:300px; */
-
-	/* Emma'screen*/
-	width:450px;
-	height:250px;
-}
-.Plates,.Desserts{
-	font-size:x-large;
-}
-
-.Infos{
+	.sod {
+		flex-basis:40%;
+	}
+	.sotd {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: large;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+	color: rgb(122, 72, 11);
+	}
+	#dayS{
+		display: block;
+		margin-left: -30px;
+		width: 95%;
+	}
+
+	/* Style Plates and Desserts part */
+	.Plates,.Desserts{
+		font-size:x-large;
+	}
+
+	/* Images fit the size to each of our screen */
+	#food1,#food7,#food2,#food3,#food6,#food11,#food13,#food8,#food12{
+		/* Asma's screen
+		width:500px;
+		height:300px; */
+
+		/* Emma'screen*/
+		width:450px;
+		height:250px;
+	}
+	#dessert2,#dessert3,#dessert4,#dessert5,#dessert7{
+		/* Asma's screen
+		padding: 1%;
+		width:400px;
+		height:300px; */
+
+		/* Emma'screen*/
+		width:450px;
+		height:250px;
+	}
+
+	/* Style Information part */
+	.Infos{
+		font-size: large;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	}
 </style>
