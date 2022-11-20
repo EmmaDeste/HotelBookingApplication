@@ -1,5 +1,5 @@
 <template>
-    <body> 
+    <body id="Feedbacks"> 
         <header>
 		<!-- add a navigation bar, as the header of each page -->
 			<nav> 
@@ -42,7 +42,7 @@
 		<h2> <span id="aspects"></span> </h2>
 		<br>
 		<!-- Specify the topic: Check-in -->
-		<p><span id="checkin"></span> </p>
+		<p id="opt"><span id="checkin"></span> </p>
 		<!-- Options to select using radiobuttons: 1 to 5 stars here -->
 		<div class="rate">
 			<input type="radio" id="star5" name="rate" value="5" />
@@ -60,7 +60,7 @@
 		<br><br><br> 
 
 		<!-- Specify the topic: Cleaning -->
-		<p> <span id="clean"></span> </p>
+		<p id="opt"> <span id="clean"></span> </p>
 		<!-- Options to select using radiobuttons: 1 to 5 stars here -->
 		<div class="rate">
 			<input type="radio" id="star5_2" name="rate_2" value="5" />
@@ -78,7 +78,7 @@
 		<br><br><br>  
 
 		<!-- Specify the topic: Staff -->
-		<p> <span id="staff"></span> </p>
+		<p id="opt"> <span id="staff"></span> </p>
 		<!-- Options to select using radiobuttons: 1 to 5 stars here -->
 		<div class="rate">
 			<input type="radio" id="star5_3" name="rate_3" value="5" />
@@ -96,7 +96,7 @@
 		<br><br><br> 
 
 		<!-- Specify the topic: Services -->
-		<p> <span id="services"></span> </p>
+		<p id="opt"> <span id="services"></span> </p>
 		<!-- Options to select using radiobuttons: 1 to 5 stars here -->
 		<div class="rate">
 			<input type="radio" id="star5_4" name="rate_4" value="5" />
@@ -114,7 +114,7 @@
 		<br><br><br><br><br>
 
 		<!-- Ask a question to the user about: his Stay -->
-		<p> <span id="stay"></span> </p>
+		<p id="question"> <span id="stay"></span> </p>
 		<!-- Options to select using radiobuttons: level of satisfaction here -->
 		<input type="radio" value="satisfied">
 		<label for="satisfied"> <span id="satisfy"></span> </label><br>
@@ -126,7 +126,7 @@
 		<br>  
 
 		<!-- Ask a question to the user about: the Restaurant -->
-		<p> <span id="gastronomy"></span> </p>
+		<p id="question"> <span id="gastronomy"></span> </p>
 		<!-- Options to select using radiobuttons: level of satisfaction here -->
 		<input type="radio" value="satisfied">
 		<label for="satisfied"> <span id="satisfy2"></span> </label><br>
@@ -138,7 +138,7 @@
 		<br>  
 
 		<!-- Ask a question to the user about: the Recommendation to others -->
-		<p> <span id="recommend"></span> </p>
+		<p id="question"> <span id="recommend"></span> </p>
 		<!-- Options to select using radiobuttons: communication here -->
 		<input type="radio" value="yes">
 		<label for="yes"> <span id="yes"></span> </label><br>
@@ -150,7 +150,7 @@
 		<br> 
 
 		<!-- Ask a question to the user about: their Comeback -->
-		<p> <span id="visit"></span> </p>
+		<p id="question"> <span id="visit"></span> </p>
 		<!-- Options to select using radiobuttons: level of satisfaction here -->
 		<input type="radio" value="100">
 		<label for="100"> <span id="definitely"></span> </label><br>
@@ -349,16 +349,17 @@
 </script>
 
 <style>
-	/* STYLING BODY OF THE FEEDBACK PAGE */
-	body{
-		background-color: papayawhip;
-		/*center the questions text*/ 
-		text-align: center;
-	}
-
+	
 	*{
 		margin: 0;
 		padding: 0;
+	}
+
+	#Feedbacks{ /* body of the Feedbacks page */
+		background-image: linear-gradient(to right top, transparent, mistyrose), url("../assets/backgroundFeedback.jpg");
+
+		/*center the questions text*/ 
+		text-align: center;
 	}
 
 	/* Styling the titles and paragraph */
@@ -370,7 +371,11 @@
 		color: purple ;
 	}
 
-	p{
+	#opt{
+		font-weight: bold;
+		color: #FF6600;
+	}
+	#question{
 		font-weight: bold;
 		color: orangered;
 	}
